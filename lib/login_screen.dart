@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         ],
         supportedLocales: [
           Locale("en", "US"),
-          Locale('ar', 'AE'), // OR Locale('ar', 'AE') OR Other RTL locales
+          Locale('ar', 'AE'),
         ]);
   }
 }
@@ -60,15 +60,6 @@ class _MyHomePageState extends State<LoginScreenPage>
     // var _animationController = AnimationController(vsync: this, duration: Duration(seconds: 1));
   }
 
-  final spinkit2 = SpinKitFadingCircle(
-    itemBuilder: (BuildContext context, int index) {
-      return DecoratedBox(
-        decoration: BoxDecoration(
-          color: index.isEven ? Colors.yellow : Colors.yellowAccent,
-        ),
-      );
-    },
-  );
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
@@ -169,7 +160,16 @@ class _MyHomePageState extends State<LoginScreenPage>
       color: Colors.yellow,
       size: 50.0,
       controller: _controller,
+      // itemBuilder: (BuildContext context, int index) {
+      //   return DecoratedBox(
+      //     decoration: BoxDecoration(
+      //       color:  Colors.green,
+      //     ),
+      //   );
+      // },
     );
+    final spinkit = SpinKitDoubleBounce(
+        color: Colors.white, size: 50.0, controller: _controller);
     return new Scaffold(
         body: GestureDetector(
       onTap: () {
@@ -215,7 +215,7 @@ class _MyHomePageState extends State<LoginScreenPage>
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: Text("مرحبا   بك",
+                  child: Text("مرحبا  بك",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Almarai',
@@ -259,7 +259,7 @@ class _MyHomePageState extends State<LoginScreenPage>
                       setState(() {
                         f = Padding(
                           padding: EdgeInsets.fromLTRB(0, 7, 0, 7),
-                          child: spinkit1,
+                          child: spinkit,
                         );
 
                         loading = !loading;
